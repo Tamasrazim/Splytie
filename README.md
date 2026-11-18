@@ -28,7 +28,7 @@ The first run downloads the FFmpeg WebAssembly engine (roughly 30 MB). The app u
 
 ## Deployment
 
-Enable GitHub Pages for the main branch and repository root. No build step is required.
+One-time setup: open Settings → Pages → Build and deployment, then set Source to GitHub Actions. The workflow checks JavaScript syntax and deploys the repository root on every push to main. If the first run stops at Configure Pages, set the source as described above and rerun the workflow.
 
 ## Runtime dependencies
 
