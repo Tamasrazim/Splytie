@@ -33,9 +33,9 @@ For example, run `python -m http.server 8000` in this directory, then open `http
 
 ## Processing and privacy
 
-Splytie does not upload source videos to a Splytie backend. The FFmpeg WebAssembly runtime and JSZip library are loaded from jsDelivr when needed. Processing, clip review and ZIP creation happen in the current browser tab. Generated clips remain in browser memory while the review queue is open; close the batch when finished to release them.
+Splytie does not upload source videos to a Splytie backend. The FFmpeg WebAssembly runtime and JSZip library are loaded from jsDelivr when needed. Processing, clip review and ZIP creation happen in the current browser tab. Generated clips remain in browser memory while the review queue is open; close the batch when finished to release them. Processing is sequential by source: temporary input and FFmpeg readback buffers are cleared after transfer, and source/output filesystem entries are removed before moving on.
 
-The browser still needs enough available memory for the active input, generated segments, and final archive. Very large batches may exceed browser memory limits. Process large sources in smaller batches when necessary. Advanced source-range and split-point controls do not change the local-only processing model.
+The browser still needs enough available memory for the active input, generated segments, and final archive. ZIP generation can temporarily require substantially more memory than the clips alone because the archive is assembled in the browser. Splytie shows a rough working-set estimate and asks for confirmation before packaging larger exports; this estimate is a warning, not a reliable prediction of available RAM. For large exports, use individual clip downloads or split the work into smaller batches. No resolution, bitrate, or quality is silently reduced. Advanced source-range and split-point controls do not change the local-only processing model.
 
 The first run downloads the FFmpeg WebAssembly engine (roughly 30 MB). The single-threaded core does not require cross-origin isolation headers.
 
