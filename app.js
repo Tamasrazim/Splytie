@@ -255,7 +255,7 @@ async function probeDuration(ffmpeg, inputPath) {
   try {
     await ffmpeg.ffprobe(["-v", "error", "-show_entries", "format=duration", "-of",
       "default=noprint_wrappers=1:nokey=1", inputPath, "-o", path]);
-    const raw = await ffmpeg.readFile(path, { encoding: "utf8" });
+    const raw = await ffmpeg.readFile(path, "utf8");
     const duration = Number.parseFloat(String(raw).trim());
     await removeIfPresent(ffmpeg, path);
     return Number.isFinite(duration) && duration > 0 ? duration : null;
