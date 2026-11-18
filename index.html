@@ -33,11 +33,11 @@
     <section class="panel source-panel" aria-labelledby="sourceTitle">
       <div class="panel-heading"><div class="heading-title"><span class="panel-index">01</span><h3 id="sourceTitle">Source videos</h3></div><button class="text-button" id="clearFiles" type="button" disabled>Clear all</button></div>
       <input id="fileInput" type="file" accept="video/*,.mkv,.avi,.mov,.mp4,.webm,.m4v,.mts,.m2ts,.ts" multiple hidden>
-      <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-label="Choose or drop video files">
+      <div class="dropzone" id="dropzone" tabindex="0" role="region" aria-label="Drop video files or choose videos">
         <div class="drop-icon"><svg viewBox="0 0 48 48" fill="none"><path d="M24 31V8m0 0-8 8m8-8 8 8M9 27v11a2 2 0 0 0 2 2h26a2 2 0 0 0 2-2V27" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <strong>Drop videos here</strong><span>or choose files from your device</span>
         <button class="button button-secondary browse-button" id="browseFiles" type="button">Choose videos</button>
-        <small>Multiple files supported · No upload required</small>
+        <small>Multiple files supported · Browser memory limits apply</small>
       </div>
       <div class="queue-heading"><span>FILE QUEUE</span><span id="fileCount">0 files</span></div>
       <div class="empty-queue" id="emptyQueue"><span class="empty-mark">▶</span><span>Your videos will appear here.</span></div>
